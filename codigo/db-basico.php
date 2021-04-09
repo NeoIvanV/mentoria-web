@@ -1,7 +1,7 @@
 <?php
 $dbname = "registro123";
 $dbuser = "registro-user";
-$dbpassword = "redhat2901";
+$dbpassword = "admin123";
 
 try{
     $dsn = "mysql:host=localhost;dbname=$dbname";
