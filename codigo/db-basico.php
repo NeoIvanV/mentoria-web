@@ -1,5 +1,5 @@
 <?php
-$dbname = "registro123";
+$dbname = "registro";
 $dbuser = "registro-user";
 $dbpassword = "admin123";
 
