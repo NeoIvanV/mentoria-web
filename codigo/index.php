@@ -23,17 +23,18 @@
 
 		 $stmt = $db->prepare($sql);
 
-		 $stmt->bindParam(':full_name', $user['name']);
-		 $stmt->bindParam(':email', $user['email']);
-		 $stmt->bindParam(':user_name', $user['username']);
-		 $stmt->bindParam(':password', password_hash($user['password'], PASSWORD_DEFAULT));
-		 $stmt->execute();
+		$stmt->bindParam(':full_name',$name);
+		$stmt->bindParam(':email',$email);
+		$stmt->bindParam(':user_name',$username);
+		$stmt->bindParam(':password',password_hash($pass, PASSWORD_DEFAULT));
 
 		$stmt->execute();
-		echo "Registro realizado con exito!";
+		echo "Registro realizado con exito";
+
 	}else{
 		echo "No se ha enviado ningun dato";
 	}
+
 ?>
 
 <!DOCTYPE html>
