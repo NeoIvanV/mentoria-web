@@ -5,11 +5,38 @@
   //$db=connectDB();
   //print_r($_POST);
 
-  if (isset($_POST['sing-up-button'])){
-	print_r($_post);
-  }else
-     echo "No se ha enviado la informacion";
-       
+  //if (isset($_POST['sing-up-button'])){
+//	print_r($_post);
+ // }else
+ //    echo "No se ha enviado la informacion";
+  
+ if (isset($_POST['sing-up-button'])){
+
+	$db=connectDB();
+
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$username = $_POST['username'];
+	$pass = $_POST['pass'];
+	$repeatPass = $_POST['repeat-pass'];
+	$rememberMe = $_POST['remember-me'];
+
+	
+	$sql = "INSERT INTO users 
+	(full_name, email, user_name, password)
+VALUES
+	(:full_name, :email, :user_name, :password)";
+
+//statement
+$stmt = $db->prepare($sql);
+
+    $stmt->bindParam(':full_name', $user['name']);
+    $stmt->bindParam(':email', $user['email']);
+    $stmt->bindParam(':user_name', $user['username']);
+    $stmt->bindParam(':password', password_hash($user['password'], PASSWORD_DEFAULT));
+    $stmt->execute();
+
+	echo "Registro realizado con Exito!"
 ?>
 
 <!DOCTYPE html>
