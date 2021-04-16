@@ -3,8 +3,8 @@
 function connectDB(){
 
     $db_name = "registro";
-    $db_user = "registro-user";
-    $db_pass = "admin123";
+    $db_user = "user1";
+    $db_pass = "user1";
 
     try  { 
         $dsn = "mysql:host=localhost;dbname=$db_name";
@@ -14,4 +14,3 @@ function connectDB(){
         echo $e->getMessage();
     }
 }
-//ss
