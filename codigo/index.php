@@ -3,7 +3,13 @@
   //echo "Hola Mundo";
   require "util/db.php";
   //$db=connectDB();
-  print_r($_POST);
+  //print_r($_POST);
+
+  if (isset($_POST['sing-up-button'])){
+	print_r($_post);
+  }else
+     echo "No se ha enviado la informacion";
+       
 ?>
 
 <!DOCTYPE html>
