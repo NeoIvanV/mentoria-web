@@ -16,10 +16,10 @@
 		$rememberMe= $_POST["remember-me"];
 		
 		// consulta
-		$sql = "INSERT INTO users
-				(full_name, email, user_name, password)
-				VALUES
-				(:full_name, :email, :user_name, :password)";
+		$sql = "INSERT INTO users 
+		(full_name, email, user_name, password)
+	VALUES
+		(:full_name, :email, :user_name, :password)";
 
 		 $stmt = $db->prepare($sql);
 
