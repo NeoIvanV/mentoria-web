@@ -8,12 +8,12 @@
 
 		//print_r($_POST);
 
-		$name = $_POST["name"];
-		$email= $_POST["email"];
-		$username= $_POST["username"];
-		$pass= $_POST["pass"];
-		$repeatPass= $_POST["repeat-pass"];
-		$rememberMe= $_POST["remember-me"];
+		$name = $_POST['name'];
+		$email= $_POST['email'];
+		$username= $_POST['username'];
+		$pass= $_POST['pass'];
+		$repeatPass= $_POST['repeat-pass'];
+		$rememberMe= $_POST['remember-me'];
 		
 		// consulta
 		$sql = "INSERT INTO users 
