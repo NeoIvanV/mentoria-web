@@ -30,13 +30,9 @@
 
 		$stmt->execute();
 		echo "Registro realizado con exito!";
-
-
-
 	}else{
 		echo "No se ha enviado ningun dato";
 	}
-
 ?>
 
 <!DOCTYPE html>
