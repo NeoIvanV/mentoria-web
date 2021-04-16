@@ -2,7 +2,7 @@
 	
 	require "util/db.php";
 
-	if (isset($_POST["sing-up-button"])){
+	if (isset($_POST['sing-up-button'])){
 	
 		$db=connectDB();
 
