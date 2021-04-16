@@ -1,4 +1,4 @@
-<?
+<?php
 // Sentencia PHP
 echo "Hola mundo";
 ?>
