@@ -1,6 +1,7 @@
 <?php
 // Sentencia PHP
-echo "Hola mundo";
+require "util/db.php";
+$db= connetctDB()
 ?>
 
 <!DOCTYPE html>
