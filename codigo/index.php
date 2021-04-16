@@ -1,7 +1,9 @@
 <?php
 // Sentencia PHP
 require "util/db.php";
+
 $db= connectDB()
+
 ?>
 
 <!DOCTYPE html>
