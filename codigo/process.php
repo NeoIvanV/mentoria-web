@@ -12,3 +12,5 @@ echo  "<br>";
 print_r($_GET);
 
 echo  "<br>";
+
+//prueba
