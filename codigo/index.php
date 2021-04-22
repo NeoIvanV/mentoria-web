@@ -4,8 +4,8 @@ $valido = null;
 
 if (isset($_POST['sign-in-button'])) {
 	$dbname = "registro";
-    $dbuser = "registro-user";
-    $dbpassword = "registro-user";
+    $dbuser = "user1";
+    $dbpassword = "user1";
 
 	$db = new mysqli('localhost', $dbuser, $dbpassword, $dbname);
 	$db->set_charset('utf8mb4');
