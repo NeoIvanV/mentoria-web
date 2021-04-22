@@ -1,9 +1,11 @@
 <?php
 
+$valido = null;
+
 if (isset($_POST['sign-in-button'])) {
 	$dbname = "registro";
-    $dbuser = "user1";
-    $dbpassword = "user1";
+    $dbuser = "registro-user";
+    $dbpassword = "registro-user";
 
 	$db = new mysqli('localhost', $dbuser, $dbpassword, $dbname);
 	$db->set_charset('utf8mb4');
@@ -11,7 +13,16 @@ if (isset($_POST['sign-in-button'])) {
 	$username = $_POST['username'];
 	$password = $_POST['pass'];
 
-	echo "$username, $password";
+	$sql = "SELECT * FROM users WHERE user_name='$username'";
+	echo $sql;
+	$result = $db->query($sql);
+
+	if ($result) {
+		//$row = $result->fetch_row()
+		echo "El result existe";
+	} else {
+		$valido = false;
+	}
 }
 
 ?>
@@ -45,10 +56,11 @@ if (isset($_POST['sign-in-button'])) {
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
 	<style>
 		.msg-form {
 			margin: 1em;
-			color: #66bb6a;
+			color: red;
 		}
 	</style>
 </head>
@@ -57,28 +69,37 @@ if (isset($_POST['sign-in-button'])) {
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
 				<form class="login100-form validate-form" method="POST" action="index.php">
 					<input type="hidden" name="super-secreto" value="valor super secreto">
 					<span class="login100-form-title p-b-59">
 						Sign In
 					</span>
+
+					<?php if ($valido === false): ?>
+						<p class="msg-form">Usuario o password incorrecto</p>
+					<?php endif; ?>
+
 					<div class="wrap-input100 validate-input" data-validate="Username is required">
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="username" placeholder="Username...">
 						<span class="focus-input100"></span>
 					</div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
 						<input class="input100" type="password" name="pass" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
+
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn" name="sign-in-button">
 								Sign In
 							</button>
+
 						</div>
 					</div>
 				</form>
@@ -102,5 +123,6 @@ if (isset($_POST['sign-in-button'])) {
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
 </body>
 </html>
