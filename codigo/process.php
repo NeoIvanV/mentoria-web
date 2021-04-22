@@ -1,16 +1,19 @@
 <?php
-//Arreglo request
+
+// Arreglo request
 print_r($_REQUEST);
 
-echo  "<br>";
+echo "<br>";
 
-//Arreglo POST
+// Arreglo post
 print_r($_POST);
-echo  "<br>";
 
-//Arreglo GET
+echo "<br>";
+
+// Arreglo get
 print_r($_GET);
 
-echo  "<br>";
+echo "<br>";
 
-//prueba
+// Arreglo server
+print_r($_SERVER);
