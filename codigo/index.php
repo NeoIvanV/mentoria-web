@@ -14,12 +14,16 @@ if (isset($_POST['sign-in-button'])) {
 	$password = $_POST['pass'];
 
 	$sql = "SELECT * FROM users WHERE user_name='$username'";
-	echo $sql;
 	$result = $db->query($sql);
 
 	if ($result) {
-		//$row = $result->fetch_row()
-		echo "El result existe";
+		$row = $result->fetch_assoc();
+
+		if (password_verify($password, $row['password'])) {
+			header("Location: main.php");
+		} else {
+			$valido = false;
+		}
 	} else {
 		$valido = false;
 	}
