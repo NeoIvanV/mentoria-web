@@ -12,8 +12,8 @@ $sql = "SELECT * FROM users";
 
 //statement
 $stmt = $db->prepare($sql);
+$stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,13 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>Username</th>
             <th>Email</th>
         </tr>
+        <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?= $user['full_name'] ?></td>
+                <td><?= $user['user_name'] ?></td>
+                <td><?= $user['email'] ?></td>
+            </tr>
+        <?php endforeach; ?>
     </table>
 </body>
 </html>
