@@ -39,7 +39,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <td><?= $user['full_name'] ?></td>
                 <td><?= $user['user_name'] ?></td>
-                <td><?= $user['email'] ?></td>
+                <td><?= $user['email'] ?? 'Sin correo' ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
