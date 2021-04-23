@@ -1,5 +1,6 @@
 <?php
-
+// XSS
+// SQL Injection
 $valido = null;
 
 if (isset($_POST['sign-in-button'])) {
@@ -14,13 +15,21 @@ if (isset($_POST['sign-in-button'])) {
 	$password = $_POST['pass'];
 
 	$sql = "SELECT * FROM users WHERE user_name='$username'";
+
+	// result es un objeto
 	$result = $db->query($sql);
 
 	if ($result) {
-		$row = $result->fetch_assoc();
+		if ($row = $result->fetch_assoc()) {
+			if (password_verify($password, $row['password'])) {
+				// activamos inicio de sesiones
+				session_start();
+				$_SESSION['nombre'] = $row['full_name'];
 
-		if (password_verify($password, $row['password'])) {
-			header("Location: main.php");
+				header("Location: main.php");
+			} else {
+				$valido = false;
+			}
 		} else {
 			$valido = false;
 		}
