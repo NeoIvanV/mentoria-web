@@ -1,11 +1,11 @@
 <?php
 
 $valido = null;
-
+$idregistro=$_GET['id'];
 require "util/db.php";
 $db = connectDB();
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT full_name FROM users where id=$idregistro";
 
 //statement
 $stmt = $db->prepare($sql);
@@ -67,7 +67,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <form action="edit.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" value="" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" value=<?= $user['full_name']?> placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
@@ -77,7 +77,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="form-group">
                     <label for="name">Email</label>
-                    <input type="text" class="form-control" id="email" value=<?= $user['email']?> placeholder="Enter mail">
+                    <input type="text" class="form-control" id="email" value="" placeholder="Enter mail">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
