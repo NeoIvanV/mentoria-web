@@ -35,7 +35,16 @@ if (isset($_POST['btn btn-primary'])) {
 
 	$message = "Registro actualizado con éxito";
 	$valido = 1;
-} 
+} else{
+    $sql = "SELECT * FROM users";
+
+    //statement
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+}
 
 ?>
 
