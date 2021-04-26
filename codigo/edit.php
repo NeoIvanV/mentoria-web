@@ -36,7 +36,7 @@ if (isset($_POST['btn btn-primary'])) {
 	$message = "Registro actualizado con éxito";
 	$valido = 1;
 } else{
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users where id='id'";
 
     //statement
     $stmt = $db->prepare($sql);
