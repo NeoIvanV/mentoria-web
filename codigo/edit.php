@@ -1,10 +1,10 @@
 <?php
 
 $valido = null;
-$idregistro=$_GET['id'];
+$idregistro=$_GET["id"];
 require "util/db.php";
 
-if (!isset($_POS['xxx'])){
+if (!isset($_POS['btn btn-primary'])){
 $db = connectDB();
 $sql = "SELECT id,full_name,user_name,email,password
     FROM users where id=$idregistro";
