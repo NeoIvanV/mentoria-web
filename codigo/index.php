@@ -1,3 +1,16 @@
+<php
+
+require "util/db.php";
+$id=$_GET["id"];
+$db = connectionDB();
+$sql = "SELECT * FROM users WHERE user_name='$username'";
+
+
+   $stmt= $db->prepare($sql);
+   $stmt= execute();
+   
+?>
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -57,36 +70,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                        <a href="view.html"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.html"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
-                        <button class="btn btn-sm">Delete</button>
+                    <?php foreach($users as $user):?>
+                    <tr><
+                       <td><?= $user['id']?></td>
+                       <td><?= $user['full_name']?></td>
+                       <td><?= $user['user_name']?></td>
+                       <td><?= $user['email']?></td>
+                   <td>
+                        <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View<button></a>
+                        <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar<button></a>
+                        <a href="delete.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Eliminar<button></a>
                     </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>
-                        <a href="view.html"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.html"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
-                        <button class="btn btn-sm">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>
-                        <a href="view.html"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.html"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
-                        <button class="btn btn-sm">Delete</button>
-                    </td>
-                    </tr>
+                 </tr>
+               <?php endforeach;?>         
                 </tbody>
             </table>
         </div>
