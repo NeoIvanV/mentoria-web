@@ -67,7 +67,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <form action="edit.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" value="" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" value="<?= $users['full_name']?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
