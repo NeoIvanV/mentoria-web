@@ -4,7 +4,7 @@
 require "util/db.php";
 
 $valido = 0;
-
+$idregistro=$_GET['id'];
 if (isset($_POST['btn btn-primary'])) {
   	// Se envio el formulario
   	$db = connectDB();
@@ -36,7 +36,7 @@ if (isset($_POST['btn btn-primary'])) {
 	$message = "Registro actualizado con éxito";
 	$valido = 1;
 } else{
-    $sql = "SELECT * FROM users where id='id'";
+    $sql = "SELECT * FROM users where id=$idregistro";
 
     //statement
     $stmt = $db->prepare($sql);
