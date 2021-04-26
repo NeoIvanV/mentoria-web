@@ -6,7 +6,7 @@ require "util/db.php";
 $db = connectDB();
 
 $sql = "SELECT full_name FROM users where id=$idregistro";
-
+print_r($sql);
 //statement
 $stmt = $db->prepare($sql);
 $stmt->execute();
