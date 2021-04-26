@@ -74,7 +74,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </thead>
                 <tbody>
                     <?php foreach($users as $user):?>
-                    <tr><
+                    <tr>
                        <td><?= $user['id']?></td>
                        <td><?= $user['full_name']?></td>
                        <td><?= $user['user_name']?></td>
