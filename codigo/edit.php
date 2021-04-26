@@ -1,6 +1,7 @@
 <?php
 
 $valido = null;
+
 $idregistro=$_GET["id"];
 require "util/db.php";
 
@@ -13,6 +14,7 @@ $sql = "SELECT id,full_name,user_name,email,password
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetch();
+$valido=0;
 
 }
 else{
@@ -122,7 +124,7 @@ else{
         <div class="container pb-5">
             <hr>
             <span class="text-muted">
-                    Copyright &copy; 2019 | <a href="https://pisyek.com">Pisyek.com</a>
+                    Copyright &copy; 2021 | <a href="https://pisyek.com">Pisyek.com</a>
             </span>
         </div>
     </footer>
