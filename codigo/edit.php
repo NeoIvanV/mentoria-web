@@ -3,8 +3,9 @@
 $valido = null;
 $idregistro=$_GET['id'];
 require "util/db.php";
-$db = connectDB();
 
+if (!isset($_POS['xxx'])){
+$db = connectDB();
 $sql = "SELECT id,full_name,user_name,email,password
     FROM users where id=$idregistro";
 
@@ -13,6 +14,32 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetch();
 
+}
+else{
+    $name=$_POST("full_name");
+    $email=$_POST("email");
+    $username=$_POST("user_name");
+    $password=$_POST("password");
+
+  $sql= " UPDATE users set 
+        full_name = :full_name,
+        user_name = :full_name,
+        email = :email,
+        password = :password
+        where id ='$idregistro'";
+	//statement
+	$stmt = $db->prepare($sql);
+
+	$stmt->bindParam(':full_name', $name);
+	$stmt->bindParam(':email', $email);
+	$stmt->bindParam(':user_name', $username);
+	$stmt->bindParam(':password', $password);
+
+	$stmt->execute();
+
+	$message = "Registro realizado con éxito";
+	$valido = 1;
+}
 ?>
 
 
