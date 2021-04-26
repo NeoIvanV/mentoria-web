@@ -1,43 +1,19 @@
 <?php
 
-// PDO
+$valido = null;
+
 require "util/db.php";
+$db = connectDB();
 
-$valido = 0;
-$idregistro=$_GET['id'];
-if (isset($_POST['btn btn-primary'])) {
-  	// Se envio el formulario
-  	$db = connectDB();
+$sql = "SELECT * FROM users";
 
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$username = $_POST['username'];
-	$pass = $_POST['pass'];
-	$repeatPass = $_POST['repeat-pass'];
-	$rememberMe = $_POST['remember-me'];
-	$password = password_hash($pass, PASSWORD_DEFAULT);
-
-	$sql = " Update  users set full_name='name',
-                email='email',
-                user_name='username',
-                 password='pass',
-			where id='id' ";
-
-	//statement
-	$stmt = $db->prepare($sql);
-
-	$stmt->bindParam(':full_name', $name);
-	$stmt->bindParam(':email', $email);
-	$stmt->bindParam(':user_name', $username);
-	$stmt->bindParam(':password', $password);
-
-	$stmt->execute();
-
-	$message = "Registro actualizado con éxito";
-	$valido = 1;
-} 
+//statement
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
+
 
 <!doctype html>
 <html lang="en" class="h-100">
