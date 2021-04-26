@@ -1,22 +1,43 @@
 <?php
 
-$valido = null;
-
+// PDO
 require "util/db.php";
-$id=$_GET['id'];
-console.log($id);
 
-$db = connectDB();
+$valido = 0;
 
-$sql = "SELECT * FROM users";
+if (isset($_POST['btn btn-primary'])) {
+  	// Se envio el formulario
+  	$db = connectDB();
 
-//statement
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$username = $_POST['username'];
+	$pass = $_POST['pass'];
+	$repeatPass = $_POST['repeat-pass'];
+	$rememberMe = $_POST['remember-me'];
+	$password = password_hash($pass, PASSWORD_DEFAULT);
+
+	$sql = " Update  users set full_name='name',
+                email='email',
+                user_name='username',
+                 password='pass',
+			where id='id' ";
+
+	//statement
+	$stmt = $db->prepare($sql);
+
+	$stmt->bindParam(':full_name', $name);
+	$stmt->bindParam(':email', $email);
+	$stmt->bindParam(':user_name', $username);
+	$stmt->bindParam(':password', $password);
+
+	$stmt->execute();
+
+	$message = "Registro actualizado con éxito";
+	$valido = 1;
+} 
 
 ?>
-
 
 <!doctype html>
 <html lang="en" class="h-100">
@@ -67,7 +88,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Edit User</h1>
-            <form action="" method="POST">
+            <form action="edit.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="name" value="" placeholder="Enter name">
@@ -80,7 +101,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="form-group">
                     <label for="name">Email</label>
-                    <input type="text" class="form-control" id="email" value="" placeholder="Enter mail">
+                    <input type="text" class="form-control" id="email" value=<?= $user['email']?> placeholder="Enter mail">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">

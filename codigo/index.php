@@ -66,9 +66,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nombre de Usuario</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>

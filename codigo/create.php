@@ -1,4 +1,3 @@
-
 <?php
 
 // PDO
@@ -38,7 +37,6 @@ if (isset($_POST['btn btn-primary'])) {
 } 
 
 ?>
-
 
 <!doctype html>
 <html lang="en" class="h-100">
@@ -89,11 +87,26 @@ if (isset($_POST['btn btn-primary'])) {
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Create New User</h1>
-            <form action="" method="POST">
+            <form action="create.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
+               <div class="form-group">
+                    <label for="name">User Name</label>
+                    <input type="text" class="form-control" id="User-name" value="" placeholder="Enter User">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Email</label>
+                    <input type="text" class="form-control" id="email" value="" placeholder="Enter mail">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Password</label>
+                    <input type="text" class="form-control" id="pass" value="" placeholder="Enter pass">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
