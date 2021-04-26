@@ -1,14 +1,17 @@
-<php
+<?php
+
+$valido = null;
 
 require "util/db.php";
-$id=$_GET["id"];
-$db = connectionDB();
-$sql = "SELECT * FROM users WHERE user_name='$username'";
+$db = connectDB();
 
+$sql = "SELECT * FROM users";
 
-   $stmt= $db->prepare($sql);
-   $stmt= execute();
-   
+//statement
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!doctype html>

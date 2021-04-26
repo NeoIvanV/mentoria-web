@@ -1,3 +1,45 @@
+
+<?php
+
+// PDO
+require "util/db.php";
+
+$valido = 0;
+
+if (isset($_POST['btn btn-primary'])) {
+  	// Se envio el formulario
+  	$db = connectDB();
+
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$username = $_POST['username'];
+	$pass = $_POST['pass'];
+	$repeatPass = $_POST['repeat-pass'];
+	$rememberMe = $_POST['remember-me'];
+	$password = password_hash($pass, PASSWORD_DEFAULT);
+
+	$sql = "INSERT INTO users 
+				(full_name, email, user_name, password)
+			VALUES
+				(:full_name, :email, :user_name, :password)";
+
+	//statement
+	$stmt = $db->prepare($sql);
+
+	$stmt->bindParam(':full_name', $name);
+	$stmt->bindParam(':email', $email);
+	$stmt->bindParam(':user_name', $username);
+	$stmt->bindParam(':password', $password);
+
+	$stmt->execute();
+
+	$message = "Registro realizado con éxito";
+	$valido = 1;
+} 
+
+?>
+
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
