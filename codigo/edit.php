@@ -1,9 +1,9 @@
 <?php
-
+require "util/db.php";
 $valido = null;
 
-$idregistro=$_GET["id"];
-require "util/db.php";
+$idregistro=$_GET['id'];
+print_r($idregistro);
 
 if (!isset($_POS['btn btn-primary'])){
 $db = connectDB();
@@ -28,7 +28,7 @@ else{
         user_name = :full_name,
         email = :email,
         password = :password
-        where id ='$idregistro'";
+        where id =$idregistro";
 	//statement
 	$stmt = $db->prepare($sql);
 
