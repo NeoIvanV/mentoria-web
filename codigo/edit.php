@@ -5,12 +5,13 @@ $idregistro=$_GET['id'];
 require "util/db.php";
 $db = connectDB();
 
-$sql = "SELECT full_name FROM users where id=$idregistro";
-print_r($sql);
+$sql = "SELECT id,full_name,user_name,email,password
+    FROM users where id=$idregistro";
+
 //statement
 $stmt = $db->prepare($sql);
 $stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$users = $stmt->fetch();
 
 ?>
 
