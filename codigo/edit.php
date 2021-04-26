@@ -68,22 +68,22 @@ $users = $stmt->fetch();
             <form action="edit.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" value=<?= $users['full_name']?> placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" value=<?= $users['full_name']?? 'ingrese nombre'?> placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">User Name</label>
-                    <input type="text" class="form-control" id="User-name" value="" placeholder="Enter User">
+                    <input type="text" class="form-control" id="User-name" value=<?= $users['user_name']?? 'ingrese usuario'?> placeholder="Enter User">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Email</label>
-                    <input type="text" class="form-control" id="email" value="" placeholder="Enter mail">
+                    <input type="text" class="form-control" id="email" value=<?= $users['email_name']?? 'ingrese email'?> placeholder="Enter mail">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Password</label>
-                    <input type="text" class="form-control" id="pass" value="" placeholder="Enter pass">
+                    <input type="text" class="form-control" id="pass" value=<?= $users['password']?? 'ingrese password'?> placeholder="Enter pass">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
