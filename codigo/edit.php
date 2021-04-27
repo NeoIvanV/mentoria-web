@@ -18,10 +18,10 @@ $valido=0;
 
 }
 else{
-    $name=$_POST("full_name");
-    $email=$_POST("email");
-    $username=$_POST("user_name");
-    $password=$_POST("password");
+    $name=$_POST["full_name"];
+    $email=$_POST["email"];
+    $username=$_POST["user_name"];
+    $password=$_POST["password"];
 
   $sql= " UPDATE users set 
         full_name = :full_name,
@@ -39,7 +39,7 @@ else{
 
 	$stmt->execute();
 
-	$message = "Registro realizado con éxito";
+	$message = "Registro actualizado con éxito";
 	$valido = 1;
 }
 ?>
