@@ -74,7 +74,7 @@ print_r($_POST);
             </div>
         </nav>
     </div>
-   <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">       -->
+   <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>List of User</h1>
@@ -95,12 +95,12 @@ print_r($_POST);
                        <td><?= $user['full_name']?></td>
                        <td><?= $user['user_name']?></td>
                        <td><?= $user['email'] ?? 'Sin correo' ?></td>
-                    <form class="form-inline my-2 my-md-0" method="POST" action="index.php">     
+                    <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      -->
                     <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>                         
                        <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
-                    </form> 
+                    <!-- </form>  -->
                     </td>
                  </tr>
                <?php endforeach;?>        
@@ -108,7 +108,7 @@ print_r($_POST);
             </table>
         </div>
     </main>
-    <!-- </form>      -->
+</form>
     <footer class="footer mt-auto py-3">
         <div class="container pb-5">
             <hr>
