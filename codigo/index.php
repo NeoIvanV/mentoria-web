@@ -12,7 +12,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (isset($_POST['eliminar'])){
+    if (isset($_GET['eliminar'])){
         $idregistro=$_GET['id'];
 
         $db = connectDB();
