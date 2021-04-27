@@ -13,6 +13,7 @@ $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['eliminar'])){
+ $db = connectDB();
 echo"paso por aqui";
 // sql to delete a record
 $sql = "DELETE FROM users WHERE id='id'";
@@ -92,7 +93,7 @@ $users = $stmt->fetch();
                    <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
-                        <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm2" name="eliminar">Eliminar</button></a>
+                        <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
                     </td>
                  </tr>
                <?php endforeach;?>         
