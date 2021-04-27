@@ -75,10 +75,10 @@ $valido=0;
                 </thead>
                 <tbody>
                     <tr>
-                       <td><?= $user['id']?></td>
-                       <td><?= $user['full_name']?></td>
-                       <td><?= $user['user_name']?></td>
-                       <td><?= $user['email'] ?? 'Sin correo' ?></td>
+                       <td><?= $users['id']?></td>
+                       <td><?= $users['full_name']?></td>
+                       <td><?= $users['user_name']?></td>
+                       <td><?= $users['email'] ?? 'Sin correo' ?></td>
                  </tr>      
                 </tbody>
             </table>
