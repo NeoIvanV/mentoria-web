@@ -5,12 +5,12 @@ require "util/db.php";
 print_r($_POST);
 print_r($_GET);
 
-if (isset($_POST['eliminar'])) {
-    $idregistro = $_POST['id'];
+if (isset($_POST["eliminar"])) {
+    $idregistro = $_POST["id"];
     $db = connectDB();
 
     $sql = "DELETE 
-    FROM users where id= :$idreidgistro";
+    FROM users where id= :$idregistro";
 
     //statement
     $stmt = $db->prepare($sql);
