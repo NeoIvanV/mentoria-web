@@ -14,7 +14,7 @@ if (isset($_POST['id'])) {
     $stmt = $db->prepare($sql);
     $stmt->execute();
      // set the resulting array to associative
-    $users = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 }
 
