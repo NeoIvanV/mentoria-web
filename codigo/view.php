@@ -4,6 +4,7 @@ $valido = null;
 
 require "util/db.php";
 $idregistro=$_GET['id'];
+
 $db = connectDB();
 $sql = "SELECT id,full_name,user_name,email,password
     FROM users where id=$idregistro";
@@ -13,6 +14,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetch();
 $valido=0;
+
 ?>
 
 <!doctype html>
@@ -72,14 +74,12 @@ $valido=0;
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($users as $user):?>
                     <tr>
                        <td><?= $user['id']?></td>
                        <td><?= $user['full_name']?></td>
                        <td><?= $user['user_name']?></td>
                        <td><?= $user['email'] ?? 'Sin correo' ?></td>
-                 </tr>
-               <?php endforeach;?>         
+                 </tr>      
                 </tbody>
             </table>
     </main>
