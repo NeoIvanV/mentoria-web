@@ -18,7 +18,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 }
 else{
-
+echo"paso por aqui";
 // sql to delete a record
 $sql = "DELETE FROM users WHERE id='id'";
 //statement
