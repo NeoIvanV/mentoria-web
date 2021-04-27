@@ -99,7 +99,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>    
                      <form method="POST" action="index.php">                         
-                       <input type="hydden" name="eliminar" value=<?= $user['id'];?> class="btn btn-danger" />
+                       <input type="hidden" name="eliminar" value=<?= $user['id'];?>>
                        <button class="btn btn-sm" name="eliminar" >Eliminar Registro</button>
                     </form>
                     </td>
