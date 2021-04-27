@@ -6,10 +6,10 @@ $db = connectDB();
 //print_r($_GET);
 
 if (isset($_POST["eliminar"])) {
-    $idregistro = $_POST["id"];
+   // $idregistro = $_POST["id"];
  echo"paso por aqui";
     $sql = "DELETE 
-    FROM users where id= :$idregistro";
+    FROM users where id= :id";
 
     //statement
     $stmt = $db->prepare($sql);
