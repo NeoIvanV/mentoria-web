@@ -5,6 +5,20 @@ require "util/db.php";
 
 print_r($_POST);
 print_r($_GET);
+
+if (isset($_POST['id'])) {
+    
+	$sql = "SELECT * FROM users WHERE user_name='$username'";
+
+	// result es un objeto
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+     // set the resulting array to associative
+    $users = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+}
+
+
 if (isset($_POST['eliminar'])) {
     $idregistro = $_POST['id'];
     $db = connectDB();
