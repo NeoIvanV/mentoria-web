@@ -3,7 +3,7 @@ require "util/db.php";
 $valido = null;
 
 $idregistro=$_GET['id'];
-//print_r($idregistro);
+
 
 if (!isset($_POST['btn btn-primary'])){
 $db = connectDB();
