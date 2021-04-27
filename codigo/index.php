@@ -12,8 +12,8 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (isset($_GET['eliminar'])){
-        $idregistro=$_GET['id'];
+    if (isset($_POST['eliminar'])){
+        $idregistro=$_POST['id'];
 
         $db = connectDB();
         echo"paso por aqui";
