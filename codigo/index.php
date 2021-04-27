@@ -1,7 +1,10 @@
 <?php
 require "util/db.php";
 
-if (isset($_POST['id'])) {
+//cargar pagina
+
+
+if (isset($_POST['eliminar'])) {
     $idregistro = $_POST['id'];
     $db = connectDB();
 
