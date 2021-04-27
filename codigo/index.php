@@ -4,7 +4,7 @@ require "util/db.php";
 $db = connectDB();
 //print_r($_POST);
 //print_r($_GET);
-print_r(id);
+print_r('id');
 if (isset($_POST["eliminar"])) {
   
  echo"paso por aqui";
