@@ -11,7 +11,7 @@ $sql = "SELECT * FROM users";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+print_r($_POST);
     if (isset($_POST['eliminar'])){
         $idregistro=$_POST['id'];
 
