@@ -74,7 +74,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </nav>
     </div>
-    <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">       -->
+   <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>List of User</h1>
@@ -100,7 +100,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>                         
                        <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
-                       <!-- </form>  -->
+                     </form>  
                     </td>
                  </tr>
                <?php endforeach;?>        
