@@ -4,7 +4,7 @@ require "util/db.php";
 $db = connectDB();
 //print_r($_POST);
 //print_r($_GET);
-print_r(id);
+print_r('id');
 if (isset($_POST["eliminar"])) {
   
  echo"paso por aqui";
@@ -101,7 +101,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </td>
                         <td>        
                      <form method="POST" action="index.php">                         
-                       <input type="hidden" name="eliminar" value=<?= $user['id'];?>><button class="btn btn-danger">Eliminar Registro</button>
+                       <input type="hidden" name="eliminar" value=<<?=$user['id']?>><button class="btn btn-danger">Eliminar Registro</button>
                     </form>
                     </td>
                <?php endforeach;?>        
