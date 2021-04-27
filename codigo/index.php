@@ -85,7 +85,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
                         <a href="delete.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Eliminar</button></a>
 				        <input name="nomreq" type="hidden" value="{{$archivo.nombre}}" />
-                        <a href="#" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm">Eliminar</button>Eliminar registro</a>
+                        <a href="#" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm">Eliminar</button></a>
                     </td>
                  </tr>
                <?php endforeach;?>         
