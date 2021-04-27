@@ -15,21 +15,6 @@ $users = $stmt->fetch();
 $valido=0;
 ?>
 
-<?php
-
-$valido = null;
-
-require "util/db.php";
-$db = connectDB();
-
-$sql = "SELECT * FROM users";
-
-//statement
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-?>
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
