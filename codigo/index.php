@@ -12,7 +12,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if (isset($_POST['eliminar'])){
+if (isset($_POST['sign-in-button'])){
  $db = connectDB();
 echo"paso por aqui";
 // sql to delete a record
@@ -68,7 +68,6 @@ $users = $stmt->fetch();
                 </ul>
                 <form class="form-inline my-2 my-md-0" method="POST" action="index.php">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            
             </div>
         </nav>
     </div>
@@ -98,7 +97,7 @@ $users = $stmt->fetch();
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
                         <!-- <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="eliminar">Elininar</button></a> -->
                         <button class="login100-form-btn" name="sign-in-button">
-								Sign In
+								Eliminar
 					   </button>
                     </td>
                  </tr>
