@@ -71,7 +71,7 @@ $users = $stmt->fetch();
         </nav>
     </div>        
     <main role="main" class="flex-shrink-0">
-        <div class="container" method="POST" action="register.php">
+        <div class="container" method="POST" action="index.php">
             <h1>List of User</h1>
             <table class="table table-striped table-hover">
                 <thead>
