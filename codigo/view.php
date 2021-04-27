@@ -69,7 +69,6 @@ $valido=0;
                     <th scope="col">Nombre</th>
                     <th scope="col">Nombre de Usuario</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,11 +78,6 @@ $valido=0;
                        <td><?= $user['full_name']?></td>
                        <td><?= $user['user_name']?></td>
                        <td><?= $user['email'] ?? 'Sin correo' ?></td>
-                   <td>
-                        <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
-                        <a href="delete.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Eliminar</button></a>
-                    </td>
                  </tr>
                <?php endforeach;?>         
                 </tbody>
