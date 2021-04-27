@@ -6,18 +6,29 @@ require "util/db.php";
 print_r($_POST);
 print_r($_GET);
 
-if (isset($_POST['id'])) {
+// if (isset($_POST['id'])) {
     
-	$sql = "SELECT * FROM users";
+	// $sql = "SELECT * FROM users";
 
 	// result es un objeto
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
+    // $stmt = $db->prepare($sql);
+    // $stmt->execute();
      // set the resulting array to associative
-     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //  $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-}
+// }
 
+$valido = null;
+
+require "util/db.php";
+$db = connectDB();
+
+$sql = "SELECT * FROM users";
+
+//statement
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['eliminar'])) {
     $idregistro = $_POST['id'];
