@@ -7,7 +7,7 @@ $db = connectDB();
 
 
 
-if (!isset($_POST['eliminar'])){
+if (!isset($_GET['eliminar'])){
     echo"paso por aquidos";
 $sql = "SELECT * FROM users";
 
