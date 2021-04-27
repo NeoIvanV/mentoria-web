@@ -103,8 +103,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                        <button class="btn btn-sm" name="eliminar" >Eliminar Registro</button>
                     </form>
                     </td>
-                 </tr>
                <?php endforeach;?>        
+               </tr>
                 </tbody>
             </table>
         </div>
