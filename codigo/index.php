@@ -66,9 +66,9 @@ $users = $stmt->fetch();
                         <a class="nav-link" href="https://pisyek.com/contact">Help</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-md-0">
+                <form class="form-inline my-2 my-md-0" method="POST" action="index.php">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                </form>
+            
             </div>
         </nav>
     </div>
@@ -97,10 +97,13 @@ $users = $stmt->fetch();
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
                         <!-- <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="eliminar">Elininar</button></a> -->
-                        <button class="btn btn-sm" name="eliminar">Delete</button>
+                        <button class="login100-form-btn" name="sign-in-button">
+								Sign In
+					   </button>
                     </td>
                  </tr>
-               <?php endforeach;?>         
+               <?php endforeach;?>     
+               </form>     
                 </tbody>
             </table>
         </div>
