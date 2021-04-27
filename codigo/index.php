@@ -4,7 +4,9 @@ $valido = null;
 
 require "util/db.php";
 $db = connectDB();
-$id=$_GET['id'];
+
+
+
 if (!isset($_POST['btn btn-primary btn-sm2'])){
 
 $sql = "SELECT * FROM users";
@@ -18,7 +20,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 else{
 
 // sql to delete a record
-$sql = "DELETE FROM users WHERE id=$id";
+$sql = "DELETE FROM users WHERE id='id'";
 }
 ?>
 
