@@ -71,7 +71,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </nav>
     </div>
-    <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      -->
+    <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>List of User</h1>
@@ -103,7 +103,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
         </div>
     </main>
-    <!-- </form>      -->
+    </form>     
     <footer class="footer mt-auto py-3">
         <div class="container pb-5">
             <hr>
