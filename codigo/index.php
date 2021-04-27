@@ -95,12 +95,12 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                        <td><?= $user['full_name']?></td>
                        <td><?= $user['user_name']?></td>
                        <td><?= $user['email'] ?? 'Sin correo' ?></td>
-                       <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">       -->
+                    <form class="form-inline my-2 my-md-0" method="POST" action="index.php">     
                     <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>                         
                        <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
-                       <!-- </form>  -->
+                    </form> 
                     </td>
                  </tr>
                <?php endforeach;?>        
