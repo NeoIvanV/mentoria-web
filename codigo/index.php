@@ -12,10 +12,8 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if (!isset($_POST['eliminar'])){
+if (isset($_POST['eliminar'])){
  $db = connectDB();
-
-
 echo"paso por aqui";
 // sql to delete a record
 $sql = "DELETE FROM users WHERE id='id'";
