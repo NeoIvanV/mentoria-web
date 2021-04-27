@@ -8,7 +8,7 @@ print_r($_GET);
 
 if (isset($_POST['id'])) {
     
-	$sql = "SELECT * FROM users WHERE user_name='$username'";
+	$sql = "SELECT * FROM users";
 
 	// result es un objeto
     $stmt = $db->prepare($sql);
