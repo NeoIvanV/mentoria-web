@@ -4,9 +4,9 @@ require "util/db.php";
 $db = connectDB();
 //print_r($_POST);
 //print_r($_GET);
-
+$id=$_GET[id];
 if (isset($_POST["eliminar"])) {
-   // $idregistro = $_POST["id"];
+  
  echo"paso por aqui";
     $sql = "DELETE 
     FROM users where id= :id";
