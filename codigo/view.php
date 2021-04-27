@@ -3,7 +3,7 @@
 $valido = null;
 
 require "util/db.php";
-
+$idregistro=$_GET['id'];
 $db = connectDB();
 $sql = "SELECT id,full_name,user_name,email,password
     FROM users where id=$idregistro";
