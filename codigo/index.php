@@ -19,7 +19,7 @@ else{
 
 // sql to delete a record
 $sql = "DELETE FROM users WHERE id=$id";
-
+}
 ?>
 
 <!doctype html>
