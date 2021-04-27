@@ -1,29 +1,17 @@
 <?php
-
-$valido = null;
-
 require "util/db.php";
-$db = connectDB();
 
-$sql = "SELECT * FROM users";
+if (isset($_GET['id'])) {
+    $idregistro = $_GET['id'];
+    $db = connectDB();
 
+    $sql = "DELETE 
+    FROM users where id=$idregistro";
 
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-print_r($_POST);
-    if (isset($_POST['eliminar'])){
-        $idregistro=$_POST['id'];
-
-        $db = connectDB();
-        echo"paso por aqui";
-
-        $sql = "DELETE FROM users WHERE id=$idregistro";
-
-        $stmt = $db->prepare($sql);
-        $stmt->execute();
-        $message = "Registro Eliminado con éxito";
-	    $valido = 1;
+    //statement
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    //$users = $stmt->fetch();
 }
 
 
