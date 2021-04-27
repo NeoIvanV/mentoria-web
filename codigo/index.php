@@ -21,6 +21,10 @@ else{
 
 // sql to delete a record
 $sql = "DELETE FROM users WHERE id='id'";
+//statement
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetch();
 }
 ?>
 
