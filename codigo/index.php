@@ -100,7 +100,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>                         
                        <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
-                     </form>  
+                     <!-- </form>   -->
                     </td>
                  </tr>
                <?php endforeach;?>        
@@ -108,7 +108,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
         </div>
     </main>
-    <!-- </form>      -->
+   </form>     
     <footer class="footer mt-auto py-3">
         <div class="container pb-5">
             <hr>
