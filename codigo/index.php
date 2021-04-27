@@ -96,8 +96,8 @@ $users = $stmt->fetch();
                    <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
-                        <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="eliminar">Elininar</button></a>
-                     
+                        <!-- <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="eliminar">Elininar</button></a> -->
+                        <button class="btn btn-sm" name="eliminar">Delete</button>
                     </td>
                  </tr>
                <?php endforeach;?>         
