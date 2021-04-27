@@ -3,7 +3,8 @@ require "util/db.php";
 
 //cargar pagina
 
-print_r($POST);
+print_r($_POST);
+print_r($_GET);
 if (isset($_POST['eliminar'])) {
     $idregistro = $_POST['id'];
     $db = connectDB();
