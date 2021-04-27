@@ -7,21 +7,20 @@ $db = connectDB();
 
 $sql = "SELECT * FROM users";
 
-//statement
+
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (isset($_GET['eliminar'])){
-    $db = connectDB();
-            echo"paso por aqui";
-// sql to delete a record
-$sql = "DELETE FROM users WHERE id='id'";
-//statement
+        $idregistro=$_GET['id'];
+        $db = connectDB();
+        echo"paso por aqui";
+
+        $sql = "DELETE FROM users WHERE id=$ideregistro";
+
         $stmt = $db->prepare($sql);
-        $stmt->bindParam(':id', $id);
         $stmt->execute();
-        $users = $stmt->fetch();
 }
 
 
