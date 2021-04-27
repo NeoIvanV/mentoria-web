@@ -1,8 +1,8 @@
 <?php
 require "util/db.php";
 
-if (isset($_GET['id'])) {
-    $idregistro = $_GET['id'];
+if (isset($_POST['id'])) {
+    $idregistro = $_POST['id'];
     $db = connectDB();
 
     $sql = "DELETE 
@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
     //statement
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    //$users = $stmt->fetch();
+   // users = $stmt->fetch();
 }
 
 
@@ -32,8 +32,7 @@ if (isset($_GET['id'])) {
     <title>List of User</title>
    
   </head>
-  <body class="d-flex flex-column h-100">
-    
+  <body class="d-flex flex-column h-100">    
     <div class="container pt-4 pb-4">
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <a class="navbar-brand" href="#">HTML CRUD Template</a>
@@ -85,10 +84,13 @@ if (isset($_GET['id'])) {
                        <td><?= $user['email'] ?? 'Sin correo' ?></td>
                     <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      -->
                     <td>
+                   <form method="POST" action="index.php">   
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>                         
-                       <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
-                    <!-- </form>  -->
+                       <!-- <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm"  name="eliminar">Eliminar</button></a> -->
+                       <input type="hidden" name="id" value="<?=$user['id']?>">  
+                       <input name="eliminar" type="button" value="Eliminar" type="submit" class="btn btn-danger" />
+                    </form>
                     </td>
                  </tr>
                <?php endforeach;?>        
@@ -101,7 +103,7 @@ if (isset($_GET['id'])) {
         <div class="container pb-5">
             <hr>
             <span class="text-muted">
-                    Copyright &copy; 2019 | <a href="https://pisyek.com">Pisyek.com</a>
+                    Copyright &copy; 2021 | <a href="https://pisyek.com">Pisyek.com</a>
             </span>
         </div>
     </footer>
