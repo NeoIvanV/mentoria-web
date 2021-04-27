@@ -23,6 +23,8 @@ $stmt->bindParam(':id', $id);
 $stmt->execute();
 $users = $stmt->fetch();
 }
+
+
 ?>
 
 <!doctype html>
@@ -69,9 +71,10 @@ $users = $stmt->fetch();
                 </form>
             </div>
         </nav>
-    </div>        
+    </div>
+        
     <main role="main" class="flex-shrink-0">
-        <div class="container" method="POST" action="index.php">
+        <div class="container">
             <h1>List of User</h1>
             <table class="table table-striped table-hover">
                 <thead>
@@ -93,7 +96,8 @@ $users = $stmt->fetch();
                    <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
-                        <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
+                        <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="eliminar">Elininar</button></a>
+                     
                     </td>
                  </tr>
                <?php endforeach;?>         
