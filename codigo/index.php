@@ -5,10 +5,6 @@ $valido = null;
 require "util/db.php";
 $db = connectDB();
 
-
-
-if (!isset($_GET['eliminar'])){
-    echo"paso por aquidos";
 $sql = "SELECT * FROM users";
 
 //statement
@@ -16,8 +12,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-}
-else{
+if (isset($_POST['eliminar'])){
 echo"paso por aqui";
 // sql to delete a record
 $sql = "DELETE FROM users WHERE id='id'";
