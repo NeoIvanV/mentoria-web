@@ -69,10 +69,9 @@ $users = $stmt->fetch();
                 </form>
             </div>
         </nav>
-    </div>
-        
+    </div>        
     <main role="main" class="flex-shrink-0">
-        <div class="container">
+        <div class="container" method="POST" action="register.php">
             <h1>List of User</h1>
             <table class="table table-striped table-hover">
                 <thead>
