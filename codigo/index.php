@@ -4,6 +4,8 @@ $valido = null;
 
 require "util/db.php";
 $db = connectDB();
+$id=$_GET['id'];
+if (!isset($_POST['btn btn-primary btn-sm2'])){
 
 $sql = "SELECT * FROM users";
 
@@ -11,6 +13,12 @@ $sql = "SELECT * FROM users";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+}
+else{
+
+// sql to delete a record
+$sql = "DELETE FROM users WHERE id=$id";
 
 ?>
 
@@ -83,8 +91,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                    <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
-				        <input name="nomreq" type="hidden" value="{{$archivo.nombre}}" />
-                        <a href="#" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm">Eliminar</button></a>
+                        <a href="index.php" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm2">Eliminar</button></a>
                     </td>
                  </tr>
                <?php endforeach;?>         
