@@ -1,40 +1,16 @@
 <?php
-
+require "util/db.php";
 //cargar pagina
 
 print_r($_POST);
 print_r($_GET);
-
-// if (isset($_POST['id'])) {
-    
-	// $sql = "SELECT * FROM users";
-
-	// result es un objeto
-    // $stmt = $db->prepare($sql);
-    // $stmt->execute();
-     // set the resulting array to associative
-    //  $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// }
-
-$valido = null;
-require "util/db.php";
-
-$db = connectDB();
-
-$sql = "SELECT * FROM users";
-
-//statement
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['eliminar'])) {
     $idregistro = $_POST['id'];
     $db = connectDB();
 
     $sql = "DELETE 
-    FROM users where id=$idregistro";
+    FROM users where id= :$idreidgistro";
 
     //statement
     $stmt = $db->prepare($sql);
@@ -42,7 +18,13 @@ if (isset($_POST['eliminar'])) {
    // users = $stmt->fetch();
 }
 
-
+$valido = null;
+$db = connectDB();
+$sql = "SELECT * FROM users";
+//statement
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!doctype html>
@@ -111,13 +93,12 @@ if (isset($_POST['eliminar'])) {
                        <td><?= $user['user_name']?></td>
                        <td><?= $user['email'] ?? 'Sin correo' ?></td>
                     <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      -->
-                    <td>
-                   <form method="POST" action="index.php">   
+                    <td> 
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>                         
-                       <!-- <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm"  name="eliminar">Eliminar</button></a> -->
-                       <input type="hidden" name="id" value="<?=$user['id']?>">  
-                       <input name="eliminar" type="button" value="Eliminar" type="submit" class="btn btn-danger" />
+                        <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>    
+                     <form method="POST" action="index.php">                         
+                       <input type="hydden" name="eliminar" value=<?= $user['id'];?> class="btn btn-danger" />
+                       <button class="btn btn-sm" name="eliminar" >Eliminar Registro</button>
                     </form>
                     </td>
                  </tr>
