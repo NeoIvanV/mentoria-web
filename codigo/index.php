@@ -12,16 +12,16 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if (isset($_POST['sign-in-button'])){
- $db = connectDB();
-echo"paso por aqui";
+    if (isset($_GET['eliminar'])){
+    $db = connectDB();
+            echo"paso por aqui";
 // sql to delete a record
 $sql = "DELETE FROM users WHERE id='id'";
 //statement
-$stmt = $db->prepare($sql);
-$stmt->bindParam(':id', $id);
-$stmt->execute();
-$users = $stmt->fetch();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $users = $stmt->fetch();
 }
 
 
@@ -66,12 +66,13 @@ $users = $stmt->fetch();
                         <a class="nav-link" href="https://pisyek.com/contact">Help</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-md-0" method="POST" action="index.php">
+                <form class="form-inline my-2 my-md-0">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </form>  
             </div>
         </nav>
     </div>
-        
+    <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      -->
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>List of User</h1>
@@ -95,20 +96,15 @@ $users = $stmt->fetch();
                    <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
-                        <!-- <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="sign-in-button">Elininar</button></a> -->
-                        <!-- <button class="login100-form-btn" name="sign-in-button"> -->
-								<!-- Eliminar -->
-					   <!-- </button> -->
-                       <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="sign-in-button">Eliminar</button></a>
+                       <a href="index.php?id=<?=$user['id']?>" onclick="return confirm('Estás seguro que deseas eliminar el registro?');"><button class="btn btn-primary btn-sm" name="eliminar">Eliminar</button></a>
                     </td>
                  </tr>
-               <?php endforeach;?>     
-               </form>     
+               <?php endforeach;?>        
                 </tbody>
             </table>
         </div>
     </main>
-      
+    <!-- </form>      -->
     <footer class="footer mt-auto py-3">
         <div class="container pb-5">
             <hr>
