@@ -5,7 +5,7 @@ $valido = null;
 $idregistro=$_GET['id'];
 print_r($idregistro);
 
-if (!isset($_POS['btn btn-primary'])){
+if (!isset($_POST['btn btn-primary'])){
 $db = connectDB();
 $sql = "SELECT id,full_name,user_name,email,password
     FROM users where id=$idregistro";
