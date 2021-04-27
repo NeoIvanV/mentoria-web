@@ -95,10 +95,10 @@ $users = $stmt->fetch();
                    <td>
                         <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                         <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
-                        <!-- <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="eliminar">Elininar</button></a> -->
-                        <button class="login100-form-btn" name="sign-in-button">
-								Eliminar
-					   </button>
+                        <a href="index.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm" name="sign-in-button">Elininar</button></a> -->
+                        <!-- <button class="login100-form-btn" name="sign-in-button"> -->
+								<!-- Eliminar -->
+					   <!-- </button> -->
                     </td>
                  </tr>
                <?php endforeach;?>     
