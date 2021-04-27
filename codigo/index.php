@@ -1,20 +1,22 @@
 <?php
 require "util/db.php";
 //cargar pagina
-
+$db = connectDB();
 print_r($_POST);
 print_r($_GET);
 
 if (isset($_POST["eliminar"])) {
     $idregistro = $_POST["id"];
-    $db = connectDB();
 
     $sql = "DELETE 
     FROM users where id= :$idregistro";
 
     //statement
     $stmt = $db->prepare($sql);
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
+    $message = "Se procedio a Eliminar";
+
    // users = $stmt->fetch();
 }
 
