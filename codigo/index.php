@@ -1,10 +1,9 @@
 <?php
-require "util/db.php";
 
 //cargar pagina
 
-print_r($_POST);
-print_r($_GET);
+//print_r($_POST);
+//print_r($_GET);
 
 // if (isset($_POST['id'])) {
     
@@ -19,8 +18,8 @@ print_r($_GET);
 // }
 
 $valido = null;
-
 require "util/db.php";
+
 $db = connectDB();
 
 $sql = "SELECT * FROM users";
