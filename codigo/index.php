@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
             </div>
         </nav>
     </div>
-   <form class="form-inline my-2 my-md-0" method="POST" action="index.php">      
+   <!-- <form class="form-inline my-2 my-md-0" method="POST" action="index.php">       -->
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>List of User</h1>
@@ -77,7 +77,7 @@ if (isset($_GET['id'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($users as $user):?>
+                    <?php foreach($users as $user):?> 
                     <tr>
                        <td><?= $user['id']?></td>
                        <td><?= $user['full_name']?></td>
@@ -96,7 +96,7 @@ if (isset($_GET['id'])) {
             </table>
         </div>
     </main>
-</form>
+<!-- </form> -->
     <footer class="footer mt-auto py-3">
         <div class="container pb-5">
             <hr>
