@@ -3,6 +3,23 @@
 $valido = null;
 
 require "util/db.php";
+
+$db = connectDB();
+$sql = "SELECT id,full_name,user_name,email,password
+    FROM users where id=$idregistro";
+
+//statement
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetch();
+$valido=0;
+?>
+
+<?php
+
+$valido = null;
+
+require "util/db.php";
 $db = connectDB();
 
 $sql = "SELECT * FROM users";
@@ -60,11 +77,32 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
         
     <main role="main" class="flex-shrink-0">
-        <div class="container">
-            <h1>View User Detail</h1>
-            <p>Name: Pisyek</p>
-            <p>Email: pisyek@gmail.com</p>
-        </div>
+    <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nombre de Usuario</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($users as $user):?>
+                    <tr>
+                       <td><?= $user['id']?></td>
+                       <td><?= $user['full_name']?></td>
+                       <td><?= $user['user_name']?></td>
+                       <td><?= $user['email'] ?? 'Sin correo' ?></td>
+                   <td>
+                        <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
+                        <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Modificar</button></a>
+                        <a href="delete.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">Eliminar</button></a>
+                    </td>
+                 </tr>
+               <?php endforeach;?>         
+                </tbody>
+            </table>
     </main>
       
     <footer class="footer mt-auto py-3">
