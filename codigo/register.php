@@ -1,7 +1,6 @@
 <?php
-if(!isset($_SESSION['nombre'])){
-    header("location:inicio.php");
-}
+
+
 // PDO
 require "util/db.php";
 
