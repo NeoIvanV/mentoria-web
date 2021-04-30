@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['nombre'])){
+    header("location:inicio.php");
+}
 $valido = null;
 
 require "util/db.php";
