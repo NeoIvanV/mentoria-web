@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION['nombre'])){
     header("location:inicio.php");
 }
+
 require "util/db.php";
 $valido = 0;
 if (isset($_POST['send-button'])) {
@@ -28,11 +29,24 @@ if (isset($_POST['send-button'])) {
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':user_name', $username);
     $stmt->bindParam(':password', $password);
-
     $stmt->execute();
 
-    $message = "Registro creado con éxito";
+    $target_dir = "upload/";
+    $nameImage = $username . ".jpg";
+    $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
+    //print_r($target_file);
+    $target_file = $target_dir . $nameImage;
+    //print_r($_FILES["imagen"]);
+    //print_r($target_file);
+
+    if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file)) {
+        echo "The file " . htmlspecialchars(basename($_FILES["imagen"]["name"])) . " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
     $valido = 1;
+    $message = "Registro creado con éxito";
 }
 ?>
 
@@ -88,11 +102,24 @@ if (isset($_POST['send-button'])) {
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Create New User</h1>
-            <?php if ($valido == 1): ?>
-						<!-- <p class="msg-form"><?= $message; ?></p> -->
-                        <font color="red"><?= $message; ?></font>
-					<?php endif; ?>
-            <form action="create.php" method="POST">
+            <?php if ($valido == 1) : ?>
+                <font color="red"><?= $message; ?></font>
+            <?php endif; ?>
+            <form action="create.php" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <!-- <?php
+                    $rutaImagen = "upload/" . $users['id'] ?? '0' . ".jpg";
+                    ?>
+                    <img src="<?= $rutaImagen; ?>"> -->
+                </div>
+
+                <div class="form-group">
+                    <!-- <img src="<?= $rutaImagen; ?>"> -->
+                    <label for="upload">Upload</label>
+                    <input type="file" class="form-control" name="imagen" id="upload">
+                </div>
+
 
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -109,7 +136,7 @@ if (isset($_POST['send-button'])) {
                 </div>
                 <div class="form-group">
                     <label for="name">Password</label>
-                    <input type="password" placeholder="*************" class="form-control" name="password" id="pass" placeholder="Enter pass">
+                    <input type="password" class="form-control" name="password" id="pass" placeholder="Enter pass">
                 </div>
 
                 <button type="submit" class="btn btn-primary" name="send-button">Submit</button>
@@ -134,5 +161,3 @@ if (isset($_POST['send-button'])) {
 </body>
 
 </html>
-
-<input class="input100" type="password" name="pass" placeholder="*************">
