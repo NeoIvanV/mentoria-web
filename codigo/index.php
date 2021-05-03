@@ -93,6 +93,7 @@ if(!isset($_SESSION['nombre'])){
 						<!-- <p class="msg-form"><?= $message; ?></p> -->
                         <font color="red"><?= $message; ?></font>
 					<?php endif; ?>
+      <a href="./excel.php"><button class="btn btn-success">Exportar a Excel</button></a><br><br>          
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -110,8 +111,8 @@ if(!isset($_SESSION['nombre'])){
                         <tr>
                             <td><?= $user['id'] ?></td>
                             <td><?= $user['full_name'] ?></td>
-                            <td><?= $user['user_name'] ?></td>
-                            <td><?= $user['email'] ?? 'Sin correo' ?></td>
+                            <td><?= $user['email'] ?></td>
+                            <td><?= $user['user_name'] ?? 'Sin correo' ?></td>
                             <td>
                                 <a href="view.php?id=<?= $user['id'] ?>"><button class="btn btn-primary btn-sm">View</button></a>
                                 <a href="edit.php?id=<?= $user['id'] ?>"><button class="btn btn-primary btn-sm">Edit</button></a>
@@ -135,7 +136,7 @@ if(!isset($_SESSION['nombre'])){
         <div class="container pb-5">
             <hr>
             <span class="text-muted">
-                Copyright &copy; 2021 | <a href="https://pisyek.com">Pisyek.com</a>
+                Copyright &copy; 2021 | <a href="https://IvanV.com">IvanV.com</a>
             </span>
         </div>
     </footer>

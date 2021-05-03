@@ -9,8 +9,6 @@ $valido = 0;
 if (isset($_POST['send-button'])) {
 
     $db = connectDB();
-
-    //$idregistro = $_POST["id"];
     $name = $_POST["full_name"];
     $email = $_POST["email"];
     $username = $_POST["user_name"];
@@ -34,10 +32,8 @@ if (isset($_POST['send-button'])) {
     $target_dir = "upload/";
     $nameImage = $username . ".jpg";
     $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
-    //print_r($target_file);
     $target_file = $target_dir . $nameImage;
-    //print_r($_FILES["imagen"]);
-    //print_r($target_file);
+
 
     if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file)) {
         echo "The file " . htmlspecialchars(basename($_FILES["imagen"]["name"])) . " has been uploaded.";
